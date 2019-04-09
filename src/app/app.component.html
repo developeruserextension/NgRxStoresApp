@@ -1,0 +1,22 @@
+<div class="container myContainer">
+  <h1>welcome to {{ title}}</h1>
+    <div class="container" [style.display]=hide >
+     <div class=sample_class><button type="button" disable>-5</button>
+      <button type="button" disable>10</button>
+      <br>
+      <button type=button ng-model="show" (click)="changeEvent()" >Start</button>
+    </div>
+    </div>
+      <div class=sample_class>
+    <div class="buttons-section" [style.display]=hideShow><button class="btn btn-success btn-sm mr-2" (click)="decrement()">Decrease</button>
+    <button class="btn btn-success btn-sm" (click)="increment();">Increase</button>
+    <div class="show"  ng-show="showng">
+        <div>
+        <ng-container *ngIf="(count$ | async) as number">
+        <div class="span_number" ><span class="badge badge-primary" id="num" [innerText]="number">10</span></div>
+       </ng-container>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>

@@ -1,0 +1,14 @@
+.sample_class button {
+  padding: 13px;
+  margin-left: 18px;
+  color: red;
+  font-size: 20px;
+  margin-top: 13px;
+}
+.span_number, span_number2 {
+  float: left;
+  width: 165px;
+  text-align: center;
+}.span_number span, .span_number2 span {
+  font-size: 49px;
+}
