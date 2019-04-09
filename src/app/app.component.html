@@ -8,12 +8,12 @@
     </div>
     </div>
       <div class=sample_class>
-    <div class="buttons-section" [style.display]=hideShow><button class="btn btn-success btn-sm mr-2" (click)="decrement()">Decrease</button>
-    <button class="btn btn-success btn-sm" (click)="increment();">Increase</button>
+    <div class="buttons-section" [style.display]=hideShow><button class="btn btn-success btn-sm mr-2" (click)="decrement()">Increase</button>
+    <button class="btn btn-success btn-sm" (click)="increment();">Decrease</button>
     <div class="show"  ng-show="showng">
         <div>
         <ng-container *ngIf="(count$ | async) as number">
-        <div class="span_number" ><span class="badge badge-primary" id="num" [innerText]="number">10</span></div>
+        <div class="span_number" ><span class="badge badge-primary" [ngStyle]="{'color': getColor(number)}" [innerText]="number">10</span></div>
        </ng-container>
       </div>
     </div>

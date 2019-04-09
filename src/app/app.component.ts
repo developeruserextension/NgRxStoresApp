@@ -14,8 +14,9 @@ export class AppComponent implements OnInit {
   title = 'NgrxApp';
   count$: Observable<any>;
 
-
-
+  public getColor(balance: number): string{
+    return balance > 0 ? 'green' : 'red';
+ }
   isShow:boolean=true;
   hideShow:any = 'none';
   hide:any='block';
