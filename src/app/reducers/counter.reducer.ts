@@ -1,21 +1,26 @@
 import { Action } from '@ngrx/store';
-import { CounterActionTypes } from '../actions/counter.actions';
 
 export interface CounterState {
-  count: number;
+  count: any;
+}
+export interface CounterState2 {
+  counts: any;
 }
 
 export const initialState: CounterState = {
-  count: -4
+  count: 12
+
 };
 
+export const initialState2: CounterState2 = {
+  counts: -6
+
+};
 export function reducer(state = initialState, action: Action): CounterState {
-  switch (action.type) {
-    case CounterActionTypes.Increment:
-      return { ...state, count: state.count + 1 };
-    case CounterActionTypes.Decrement:
-      return { ...state, count: state.count - 1 };
-    default:
-      return state;
-  }
+  return { ...state, count: state.count - 2};
+
+}
+export function reducer1(state2 = initialState2, action: Action): CounterState2 {
+  return { ...state2, counts: state2.counts + 1};
+
 }

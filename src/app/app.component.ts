@@ -2,8 +2,9 @@ import { Component, OnInit  } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppState} from './reducers';
 import { Store, select } from '@ngrx/store';
-import { getCount } from './selectors/counter.selector';
+import { getCount,getCounts} from './selectors/counter.selector';
 import { Decrement, Increment } from './actions/counter.actions';
+import { async } from 'q';
 
 @Component({
   selector: 'app-root',
@@ -13,32 +14,32 @@ import { Decrement, Increment } from './actions/counter.actions';
 export class AppComponent implements OnInit {
   title = 'NgrxApp';
   count$: Observable<any>;
+  count1$: Observable<number>;
 
   public getColor(balance: number): string{
-    return balance > 0 ? 'green' : 'red';
+    return balance > 0 ? 'blue' : 'red';
  }
-  isShow:boolean=true;
-  hideShow:any = 'none';
-  hide:any='block';
+  // isShow:boolean=true;
+  // hideShow:any = 'none';
+  // hide:any='block';
 
-  constructor(private store: Store<AppState>, private store2: Store<AppState>) {
+  constructor(public store: Store<AppState>) {
     this.count$ = this.store.pipe(select(getCount));
+    this.count1$ = this.store.pipe(select(getCounts));
+  }
 
-  }
-show(){
- this.isShow=!this.isShow;
+// show(){
+//  this.isShow=!this.isShow;
+// }
+  increment(){
+    setInterval(()=> {
+      this.store.dispatch(new Increment());
+      }, 1000);
 }
-  decrement(): void {
-    this.store.dispatch(new Increment());
+  // changeEvent(){
+  //   this.hideShow = 'block';
+  //   this.hide='none';
+  // }
+  ngOnInit(): void {}
   }
-  increment(): void {
-    this.store2.dispatch(new Decrement());
-  }
-  changeEvent(){
-    this.hideShow = 'block';
-    this.hide='none';
-  }
-  ngOnInit(): void {
-    this.increment();
-  }
-}
+
